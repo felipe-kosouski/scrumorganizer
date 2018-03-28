@@ -6,9 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="text-center">
+
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <%= render 'layouts/navbar' %>
+
+      <div class="container">
+          <%= yield %>
+      </div>
+
+      <%= render 'layouts/footer' %>
+  </div>
   </body>
 </html>
