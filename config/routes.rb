@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get 'home/register'
   get 'home/login'
 
+  # Devise Routes
+  devise_for :users
+
 end

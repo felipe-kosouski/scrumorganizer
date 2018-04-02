@@ -12,6 +12,9 @@ gem 'pg', '0.18.4'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'devise'
+gem 'simple_form'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
