@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Web5Project</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title><%= full_title(yield(:head_title)) %></title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= render 'layouts/shim' %>
+</head>
 
-  <body>
+<body class="text-center">
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+  <%= render 'layouts/navbar' %>
+
+  <div class="container">
+    <%= render 'shared/flash_messages' %>
     <%= yield %>
-  </body>
+  </div>
+
+  <%= render 'layouts/footer' %>
+</div>
+</body>
 </html>
