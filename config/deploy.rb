@@ -89,7 +89,7 @@ namespace :deploy do
       sudo "ln -nfs /home/#{fetch(:user)}/apps/#{fetch(:application)}/current/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
       sudo :service, :nginx, :reload
 
-      execute "PGPASSWORD=#{fetch(:db_pwd)} psql --user postgres -c 'create database bucketlist_production;'"
+      execute "PGPASSWORD=#{fetch(:db_pwd)} psql --user postgres -c 'create database web5project_production;'"
     end
   end
 

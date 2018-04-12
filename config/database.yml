@@ -18,4 +18,4 @@ test:
 
 production:
   <<: *default
-  database: web5Project_production
+  database: web5project_production
