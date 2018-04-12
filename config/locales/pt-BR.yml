@@ -1,9 +1,6 @@
 pt-BR:
   activerecord:
     models:
-      Contact:
-        one: "Contato"
-        other: "Contatos"
       User:
         one: "Usuário"
         other: "Usuários"

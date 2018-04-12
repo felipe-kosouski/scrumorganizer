@@ -4,10 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]*[_|-|.]*[a-zA-Z0-9]*\z/
+  VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
   validates :name, presence: true
   validates :username, presence: true,
-            format: {with: /\[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)\z/,
-                     message: "Only letters, numbers and symbols (. _ -)"}
+            format: {with: VALID_USERNAME_REGEX,
+                     message: "Somente letras, numeros e simbolos (. _ -)"}
   validates :email, presence: true,
-            format: {with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
+            format: {with: VALID_EMAIL_REGEX}
 end

@@ -46,6 +46,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'guard-rspec', require: false
   gem 'database_cleaner', '1.6.0'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
