@@ -20,4 +20,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/felipe-kosouski/web5-project.svg?columns=all)](https://waffle.io/felipe-kosouski/web5-project)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/felipe-kosouski/scrumorganizer.svg?columns=all)](https://waffle.io/felipe-kosouski/scrumorganizer)
