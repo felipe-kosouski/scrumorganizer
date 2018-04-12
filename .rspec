@@ -1,1 +1,5 @@
+--color
 --require spec_helper
+--format progress
+--format html
+--out tmp/spec_outputs/spec_results.html
