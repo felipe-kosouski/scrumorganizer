@@ -1,3 +1,7 @@
+.container{
+  margin-left: unset !important;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -6,11 +10,93 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color: #F8FAFB;
 }
 
 .bg-gray {
-  background-color: rgba(15, 15, 16, 0.49) !important;
+  background-color: #ffffff;
+  border-bottom: #e0e0e0 1px solid;
   a.nav-brand, li > a {
-    color: #FFF !important;
+    color: #343738 !important;
   }
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  margin-top: 1em;
+  padding: 20px 0 10px 0;
+  background: #fff;
+  border: #0084FE 1px solid;
+  border-radius: 5px;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul{
+  list-style: none;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+
+.red{
+  color: red;
 }

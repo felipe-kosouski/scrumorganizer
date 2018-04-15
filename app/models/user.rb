@@ -13,4 +13,6 @@ class User < ApplicationRecord
                      message: "Somente letras, numeros e simbolos (. _ -)"}
   validates :email, presence: true,
             format: {with: VALID_EMAIL_REGEX}
+
+  has_many :projects, dependent: :destroy
 end
