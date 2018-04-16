@@ -4,8 +4,8 @@
   <title><%= full_title(yield(:head_title)) %></title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'users/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'users/application', 'data-turbolinks-track': 'reload' %>
   <%= render 'layouts/shim' %>
 </head>
 
@@ -14,8 +14,17 @@
   <%= render 'users/layouts/navbar' %>
 
   <div class="container">
-    <%= render 'shared/flash_messages' %>
-    <%= yield %>
+    <div class="row">
+      <div class="col-md-2">
+        <%= render 'users/layouts/sidebar' %>
+      </div>
+
+      <div class="col-md-10">
+        <%= render 'shared/flash_messages' %>
+        <%= yield %>
+      </div>
+
+    </div>
   </div>
 
 </body>

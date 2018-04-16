@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'simple_form'
+gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.0.9'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
