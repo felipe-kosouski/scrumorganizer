@@ -2,22 +2,22 @@ class Users::ProjectsController < Users::BaseController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   def edit
   end
 
   def show
-    set_project
+    @boards = @project.boards
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.new
   end
 
   def create
-    @project = Project.new(projects_params)
+    @project = current_user.projects.new(projects_params)
 
     if @project.save
       flash[:notice] = "Projeto criado com sucesso"
@@ -41,15 +41,15 @@ class Users::ProjectsController < Users::BaseController
   def destroy
     @project.destroy
     flash[:notice] = "Projeto excluido com sucesso"
-    redirect_to [:users, Project.new]
+    redirect_to [:users, :projects]
   end
 
   private
   def set_project
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   def projects_params
-    params.require(:project).permit(:name, :user_id)
+    params.require(:project).permit(:name)
   end
 end

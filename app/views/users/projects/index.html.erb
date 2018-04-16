@@ -15,7 +15,7 @@
   <tbody>
   <% @projects.each do |project| %>
     <tr>
-      <td><%= project.name %></td>
+      <td><%= link_to "#{project.name}", users_project_path(project.id) %></td>
       <td><%= project.user.name %></td>
       <td>
         <%= link_to fa_icon("minus-circle 2x", class: "red"), [:users, project], method: :delete, data: { confirm: 'Tem certeza?'}%>

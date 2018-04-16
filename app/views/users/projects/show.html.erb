@@ -1,1 +1,13 @@
 <h1><%= @project.name %></h1>
+<div class="container">
+    <%= link_to fa_icon("plus-circle 2x"), new_users_project_board_path(@project), class: "pull-right" %>
+  <br><br>
+
+  <div class="row">
+    <% @boards.each do |board| %>
+      <div class="col-md-3">
+          <h5><%= board.name %></h5>
+      </div>
+    <% end %>
+  </div>
+</div>

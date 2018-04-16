@@ -1,14 +1,17 @@
-<% provide(:head_title, "Novo Projeto") %>
+<% provide(:head_title, "Novo Quadro") %>
 
+<h1>New board</h1>
 
-<%= simple_form_for [:users, @project] do |f| %>
+<%= simple_form_for [:users, @project, @board] do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :position, required: true%>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Salvar", class: "btn btn-outline-primary" %>
   </div>
 <% end %>
+

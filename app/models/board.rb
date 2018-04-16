@@ -1,5 +1,5 @@
 class Board < ApplicationRecord
-  acts_as_list
+  #acts_as_list
 
   belongs_to :project
 
