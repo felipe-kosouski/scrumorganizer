@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     namespace :users do
       root to: 'dashboard#index'
 
-      resources :projects
+      resources :projects do
+        resources :boards
+      end
       #get '/projects', to: 'projects#index'
       #get '/projects/new', to: 'projects#new'
       #get '/projects/edit', to: 'projects#edit'
