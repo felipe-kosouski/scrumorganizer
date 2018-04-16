@@ -116,7 +116,7 @@ production:
   username: postgres
   password: #{fetch(:db_pwd)}
   host: localhost
-  database: web5Project_production
+  database: web5project_production
   EOF
   StringIO.new(database)
 end

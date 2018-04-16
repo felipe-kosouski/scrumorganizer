@@ -1,0 +1,27 @@
+ <div class="profile-sidebar">
+
+    <div class="profile-usertitle">
+      <div class="profile-usertitle-name">
+        <%= current_user.name %>
+      </div>
+      <div class="profile-usertitle-job">
+        Developer
+      </div>
+    </div>
+
+    <div class="profile-usermenu">
+      <ul>
+        <li>
+          <%= link_to fa_icon("home", text: 'Dashboard'), users_root_path %>
+        </li>
+        <li>
+          <%= link_to fa_icon("calendar", text: 'Projetos'), users_projects_path %>
+        </li>
+        <li>
+          <%= link_to fa_icon("signal", text: "Estatisticas"), "#" %>
+        </li>
+
+      </ul>
+    </div>
+    <!-- END MENU -->
+  </div>
