@@ -51,7 +51,7 @@ body {
 }
 
 .profile-usermenu {
-  margin-top: 30px;
+  margin-top: 1em;
 }
 
 .profile-usermenu ul{
@@ -70,8 +70,7 @@ body {
 }
 
 .profile-usermenu ul li a i {
-  margin-right: 8px;
-  font-size: 14px;
+  margin-right: 1em;
 }
 
 .profile-usermenu ul li a:hover {
@@ -99,4 +98,12 @@ body {
 
 .red{
   color: red;
+}
+
+.content{
+  background: #fff;
+  margin-top: 1em;
+  padding: 1em;
+  border: #e0e0e0 1px solid;
+  border-radius: 5px;
 }
