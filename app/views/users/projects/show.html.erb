@@ -1,1 +1,21 @@
-<h1><%= @project.name %></h1>
+<div class="row">
+  <h1><%= @project.name %></h1>
+  <%= link_to fa_icon("edit 2x", class: "pull-right"), edit_users_project_path(@project) %>
+</div>
+
+<div class="container">
+    <%= link_to fa_icon("plus-circle 2x"), new_users_project_board_path(@project), class: "pull-right" %>
+  <br><br>
+
+  <div class="row">
+    <% @boards.each do |board| %>
+      <div class="col-md-3">
+        <%= link_to fa_icon("edit 2x", class: ""), edit_users_project_board_path(board) %>
+        <%= link_to fa_icon("trash 2x", class: "red pull-right"),
+                    [:users, @project, board], method: :delete, data: { confirm: 'Tem certeza?'}%>
+        <h5 class="text-center"><%= board.name %></h5>
+        <hr>
+      </div>
+    <% end %>
+  </div>
+</div>
