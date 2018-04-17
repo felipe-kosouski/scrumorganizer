@@ -19,6 +19,7 @@
       <td><%= project.user.name %></td>
       <td>
         <%= link_to fa_icon("minus-circle 2x", class: "red"), [:users, project], method: :delete, data: { confirm: 'Tem certeza?'}%>
+        <%= link_to fa_icon("edit 2x"), edit_users_project_path(project) %>
       </td>
     </tr>
   <% end %>

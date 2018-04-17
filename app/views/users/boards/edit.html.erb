@@ -1,8 +1,8 @@
-<% provide(:head_title, "Novo Quadro") %>
+<% provide(:head_title, "Editar Quadro") %>
 
-<h1>New board</h1>
+<h1>Editar Quadro</h1>
 
-<%= simple_form_for [:users, @project, @board] do |f| %>
+<%= simple_form_for [:users, @project, @board], html: { method: :put } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -14,4 +14,3 @@
     <%= f.button :submit, "Salvar", class: "btn btn-outline-primary" %>
   </div>
 <% end %>
-

@@ -1,6 +1,7 @@
 class Users::BoardsController < Users::BaseController
   before_action :set_project
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+
   def index
   end
 
