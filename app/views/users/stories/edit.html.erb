@@ -1,0 +1,15 @@
+<% provide(:head_title, "Editar Estoria") %>
+
+<h1>Editar Estoria</h1>
+
+<%= simple_form_for [:users, @project, @board, @story], html: { method: :put } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, required: true, autofocus: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Salvar", class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

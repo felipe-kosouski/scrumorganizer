@@ -8,13 +8,33 @@
   <br><br>
 
   <div class="row">
+
+    <%#= tag.div id: :boards, data: {boards: @boards.to_json(include: :stories)} %>
+
+    <%# props = {
+        boards: @boards
+    }.to_json(include: :stories)
+    %>
+
+<!--    <div id="boards" data-boards="<%#= props %>"></div>-->
+
+
     <% @boards.each do |board| %>
       <div class="col-md-3">
-        <%= link_to fa_icon("edit 2x", class: ""), edit_users_project_board_path(board) %>
+        <%= link_to fa_icon("edit 2x", class: ""), edit_users_project_board_path(@project, board) %>
         <%= link_to fa_icon("trash 2x", class: "red pull-right"),
-                    [:users, @project, board], method: :delete, data: { confirm: 'Tem certeza?'}%>
+                    [:users, @project, board], method: :delete, data: {confirm: 'Tem certeza?'} %>
         <h5 class="text-center"><%= board.name %></h5>
         <hr>
+        <%= link_to fa_icon("plus", class: ""), new_users_project_board_story_path(@project, board) %>
+        <% board.stories.each do |story|  %>
+          <div class="card card-body">
+            <p><%= story.name %></p>
+            <%= link_to fa_icon("edit", class: "pull-right"), edit_users_project_board_story_path(@project, board, story) %>
+            <%= link_to fa_icon("trash", class: "red pull-right"),
+                        [:users, @project, board, story], method: :delete, data: {confirm: 'Tem certeza?'} %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
