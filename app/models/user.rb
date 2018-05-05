@@ -14,5 +14,7 @@ class User < ApplicationRecord
   validates :email, presence: true,
             format: {with: VALID_EMAIL_REGEX}
 
-  has_many :projects, dependent: :destroy
+  has_many :projects
+  has_many :users_projects
+  has_many :shared_projects, through: :users_projects
 end

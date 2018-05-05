@@ -1,5 +1,5 @@
 class Users::ProjectsController < Users::BaseController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :newcollaborators]
 
   def index
     @projects = current_user.projects
@@ -42,6 +42,14 @@ class Users::ProjectsController < Users::BaseController
     @project.destroy
     flash[:notice] = "Projeto excluido com sucesso"
     redirect_to [:users, :projects]
+  end
+
+  def new_collaborators
+
+  end
+
+  def add_collaborators
+
   end
 
   private

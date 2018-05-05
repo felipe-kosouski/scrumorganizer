@@ -4,6 +4,7 @@
 </div>
 
 <div class="container">
+    <%= link_to "Adicionar Colaboradores", users_project_collaborators_path(@project), class: "btn btn-outline-primary" %>
     <%= link_to fa_icon("plus-circle 2x"), new_users_project_board_path(@project), class: "pull-right" %>
   <br><br>
 

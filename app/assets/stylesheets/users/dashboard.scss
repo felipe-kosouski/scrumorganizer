@@ -1,3 +1,9 @@
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 .container{
   margin-left: unset !important;
 }
@@ -106,4 +112,15 @@ body {
   padding: 1em;
   border: #e0e0e0 1px solid;
   border-radius: 5px;
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
