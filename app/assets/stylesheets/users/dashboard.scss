@@ -124,3 +124,7 @@ body {
   margin-top: 45px;
   @include box_sizing;
 }
+
+.checkbox{
+  display: block !important;
+}

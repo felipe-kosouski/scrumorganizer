@@ -16,5 +16,5 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :users_projects
-  has_many :shared_projects, through: :users_projects
+  has_many :shared_projects, through: :users_projects, source: :project
 end

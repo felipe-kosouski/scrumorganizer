@@ -1,5 +1,5 @@
 class Users::ProjectsController < Users::BaseController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :newcollaborators]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = current_user.projects
@@ -9,7 +9,7 @@ class Users::ProjectsController < Users::BaseController
   end
 
   def show
-    @boards = @project.boards.order(position: :asc)
+    @boards = @project.boards.sorted
   end
 
   def new
@@ -45,11 +45,14 @@ class Users::ProjectsController < Users::BaseController
   end
 
   def new_collaborators
-
+    @project = current_user.projects.find(params[:project_id])
   end
 
   def add_collaborators
-
+    @project = current_user.projects.find(params[:project_id])
+    @project.collaborator_ids = params[:project][:collaborator_ids]
+    flash[:success] = "Usuário adicionado ao projeto"
+    redirect_to [:users, @project]
   end
 
   private

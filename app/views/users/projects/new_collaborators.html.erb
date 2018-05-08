@@ -1,0 +1,16 @@
+<% provide(:head_title, "Adicionar colaboradores") %>
+
+<h1>Adicionar ou remover colaboradores do projeto</h1>
+
+<%= simple_form_for(@project, url: users_project_collaborators_path(@project), method: :post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-check">
+    <%= f.association :collaborators, as: :check_boxes, label: "" %>
+    <%#= f.input :collaborators, collection: @project.collaborators, as: :check_boxes%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Salvar", class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

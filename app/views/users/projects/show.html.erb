@@ -1,21 +1,46 @@
+<% provide(:head_title, "Projeto") %>
+
 <div class="row">
   <h1><%= @project.name %></h1>
   <%= link_to fa_icon("edit 2x", class: "pull-right"), edit_users_project_path(@project) %>
+  <!--#% @project.collaborators.each do |collaborator| %>
+    <p><%#= collaborator.name %></p>
+  <#% end %-->
 </div>
 
 <div class="container">
-    <%= link_to "Adicionar Colaboradores", users_project_collaborators_path(@project), class: "btn btn-outline-primary" %>
+    <%= link_to "Colaboradores", users_project_collaborators_path(@project), class: "btn btn-outline-primary" %>
     <%= link_to fa_icon("plus-circle 2x"), new_users_project_board_path(@project), class: "pull-right" %>
   <br><br>
 
   <div class="row">
+
+    <%#= tag.div id: :boards, data: {boards: @boards.to_json(include: :stories)} %>
+
+    <%# props = {
+        boards: @boards
+    }.to_json(include: :stories)
+    %>
+
+<!--    <div id="boards" data-boards="<%#= props %>"></div>-->
+
+
     <% @boards.each do |board| %>
       <div class="col-md-3">
-        <%= link_to fa_icon("edit 2x", class: ""), edit_users_project_board_path(board) %>
+        <%= link_to fa_icon("edit 2x", class: ""), edit_users_project_board_path(@project, board) %>
         <%= link_to fa_icon("trash 2x", class: "red pull-right"),
-                    [:users, @project, board], method: :delete, data: { confirm: 'Tem certeza?'}%>
+                    [:users, @project, board], method: :delete, data: {confirm: 'Tem certeza?'} %>
         <h5 class="text-center"><%= board.name %></h5>
         <hr>
+        <%= link_to fa_icon("plus", class: ""), new_users_project_board_story_path(@project, board) %>
+        <% board.stories.each do |story|  %>
+          <div class="card card-body">
+            <p><%= story.name %></p>
+            <%= link_to fa_icon("edit", class: "pull-right"), edit_users_project_board_story_path(@project, board, story) %>
+            <%= link_to fa_icon("trash", class: "red pull-right"),
+                        [:users, @project, board, story], method: :delete, data: {confirm: 'Tem certeza?'} %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

@@ -12,10 +12,13 @@ Rails.application.routes.draw do
 
       resources :projects do
 
-        get '/collaborators', to: "projects#newcollaborators"
-        post '/collaborators', to: "projects#addcollaborators"
+        get '/collaborators', to: "projects#new_collaborators"
+        post '/collaborators', to: "projects#add_collaborators"
 
-        resources :boards
+        resources :boards do
+          resources :stories
+        end
+
       end
 
     end
