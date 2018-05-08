@@ -11,11 +11,7 @@ RSpec.describe Project, type: :model do
     it { should validate_presence_of(:name) }
   end
 
-  describe Project do
-    it { should belong_to(:user) }
-  end
+  it { should belong_to(:user) }
 
-  describe User do
-    it { should have_many(:projects)}
-  end
+  it { should have_many(:boards) }
 end

@@ -21,7 +21,7 @@ RSpec.feature "Projects", type: :feature do
     expect(page).to have_selector('div.profile-sidebar')
   end
 
-=begin
+
    it 'should create a project with success when the data are valid' do
      user = create(:user)
      login_as(user, scope: :user)
@@ -29,7 +29,6 @@ RSpec.feature "Projects", type: :feature do
 
      visit new_users_project_path
      fill_in 'project_name', with: project.name
-     select project.user.name, from: 'project[user_id]'
 
      expect do
        find('input[name="commit"]').click
@@ -38,8 +37,7 @@ RSpec.feature "Projects", type: :feature do
      expect(page.current_path).to eq users_project_path
      expect(page).to have_selector('div.alert.alert-info', text: 'Projeto criado com sucesso')
    end
-  end
-=end
+
 
 =begin
   it 'should delete a project' do
