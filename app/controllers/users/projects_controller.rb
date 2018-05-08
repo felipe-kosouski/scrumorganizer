@@ -9,7 +9,7 @@ class Users::ProjectsController < Users::BaseController
   end
 
   def show
-    @boards = @project.boards.order(position: :asc)
+    @boards = @project.boards.sorted
   end
 
   def new

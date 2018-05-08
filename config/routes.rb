@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       root to: 'dashboard#index'
 
       resources :projects do
-        resources :boards
+        resources :boards do
+          resources :stories
+        end
       end
 
     end

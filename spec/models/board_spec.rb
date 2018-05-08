@@ -11,11 +11,7 @@ RSpec.describe Board, type: :model do
     it { should validate_presence_of(:position)}
   end
 
-  describe Board do
-    it { should belong_to(:project) }
-  end
+  it { should belong_to(:project) }
+  it { should have_many(:stories) }
 
-  describe Project do
-    it { should have_many(:boards) }
-  end
 end
