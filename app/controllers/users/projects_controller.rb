@@ -44,6 +44,17 @@ class Users::ProjectsController < Users::BaseController
     redirect_to [:users, :projects]
   end
 
+  def new_collaborators
+    @project = current_user.projects.find(params[:project_id])
+  end
+
+  def add_collaborators
+    @project = current_user.projects.find(params[:project_id])
+    @project.collaborator_ids = params[:project][:collaborator_ids]
+    flash[:success] = "Usuário adicionado ao projeto"
+    redirect_to [:users, @project]
+  end
+
   private
   def set_project
     @project = current_user.projects.find(params[:id])
