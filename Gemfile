@@ -16,6 +16,8 @@ gem "font-awesome-rails"
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'acts-as-list'
 gem 'webpacker'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -33,6 +35,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'faker'
 end
 
 group :production do

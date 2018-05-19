@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_params, if: :devise_controller?
   layout :layout_by_resource
 
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+      format.html { redirect_to [:users, @project] , alert: exception.message }
+    end
+  end
+
   protected
   def layout_by_resource
     if devise_controller?

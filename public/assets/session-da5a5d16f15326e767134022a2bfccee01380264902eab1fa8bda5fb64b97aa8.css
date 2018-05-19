@@ -1,0 +1,44 @@
+/*************************************************************
+* HTML and body style
+**************************************************************/
+/* line 5, /Users/felipekosouski/Workspace/Web5/scrumorganizer/app/assets/stylesheets/session.scss */
+html, body {
+  height: 100%;
+  background: #fff;
+}
+
+/* line 10, /Users/felipekosouski/Workspace/Web5/scrumorganizer/app/assets/stylesheets/session.scss */
+body {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  color: #3e4855;
+  background-color: #fff;
+  line-height: 1.42857143;
+}
+
+/* line 18, /Users/felipekosouski/Workspace/Web5/scrumorganizer/app/assets/stylesheets/session.scss */
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/*************************************************************
+* Vertical and horizontal align
+**************************************************************/
+/* line 28, /Users/felipekosouski/Workspace/Web5/scrumorganizer/app/assets/stylesheets/session.scss */
+.container {
+  height: 100%;
+}
+
+/* line 32, /Users/felipekosouski/Workspace/Web5/scrumorganizer/app/assets/stylesheets/session.scss */
+.vertical-centering {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-55%);
+  transform: translateY(-55%);
+}
+
+/* line 39, /Users/felipekosouski/Workspace/Web5/scrumorganizer/app/assets/stylesheets/session.scss */
+.horizontal-centering {
+  width: 350px;
+  margin: auto;
+}
