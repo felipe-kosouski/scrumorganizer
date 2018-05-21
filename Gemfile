@@ -40,6 +40,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
   gem 'capistrano-rails-db',require: false
+  gem 'capistrano-yarn', require: false
 end
 
 group :production do

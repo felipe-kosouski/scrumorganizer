@@ -11,9 +11,14 @@ Rails.application.routes.draw do
       root to: 'dashboard#index'
 
       resources :projects do
+
+        get '/collaborators', to: "projects#new_collaborators"
+        post '/collaborators', to: "projects#add_collaborators"
+
         resources :boards do
           resources :stories
         end
+
       end
 
     end
