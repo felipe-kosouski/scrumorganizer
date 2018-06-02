@@ -71,16 +71,6 @@ namespace :deploy do
     end
   end
 
-  desc "Run Rails webpacker install"
-      task :webpacker_install do
-      on roles(:app) do
-        within release_path do
-          #execute("cd #{release_path} && bin/rails webpacker:install")
-          execute("cd #{release_path} && ( export RAILS_ENV=\"production\" ; ~/.rvm/bin/rvm default do bundle exec rails webpacker:install )")
-        end
-      end
-    end
-
   desc 'Create base Directories'
   task :setup do
     on roles(:app) do
@@ -111,7 +101,6 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after :finishing,     :webpacker_install
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
 end
