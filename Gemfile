@@ -15,7 +15,8 @@ gem 'simple_form'
 gem "font-awesome-rails"
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'acts-as-list'
-gem 'webpacker'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -40,7 +41,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
   gem 'capistrano-rails-db',require: false
-  gem 'capistrano-yarn', require: false
+  gem 'faker'
 end
 
 group :production do

@@ -45,7 +45,7 @@ class Users::BoardsController < Users::BaseController
 
   private
   def set_project
-    @project = current_user.projects.find(params[:project_id])
+    @project = current_user.projects.find_by(id: params[:project_id]) || current_user.shared_projects.find_by(id: params[:project_id])
   end
 
   def set_board
