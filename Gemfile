@@ -15,7 +15,6 @@ gem 'simple_form'
 gem "font-awesome-rails"
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'acts-as-list'
-gem 'webpacker'
 gem 'cancancan'
 gem 'rolify'
 
