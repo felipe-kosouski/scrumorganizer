@@ -1,0 +1,19 @@
+<h1>Informações do colaborador</h1>
+
+<hr>
+
+<h4>Nome</h4>
+<p><%= @collaborator.name %></p>
+
+<h4>Email</h4>
+<p><%= @collaborator.email %></p>
+
+<h4>Função no projeto</h4>
+<% if @collaborator.has_role? :developer, @project %>
+    <p>Desenvolvedor</p>
+  <% elsif @collaborator.has_role? :manager, @project %>
+    <p>Product Manager</p>
+  <% elsif @collaborator.has_role? :master, @project %>
+    <p>Scrum Master</p>
+<% end %>
+

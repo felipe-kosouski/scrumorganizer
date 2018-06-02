@@ -1,4 +1,6 @@
 class Board < ApplicationRecord
+  resourcify
+
   belongs_to :project
   has_many :stories , -> { order(position: :asc)}, dependent: :destroy
 

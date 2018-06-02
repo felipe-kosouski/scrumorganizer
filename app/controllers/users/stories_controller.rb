@@ -44,9 +44,18 @@ class Users::StoriesController < Users::BaseController
     redirect_to [:users, @project]
   end
 
+  def set_roles
+    #if role == :manager
+    # @collaborator.add_role :manager, @project
+    # elsif role == :master
+    # @collaborator.add_role :master, @project
+    # elsif role == :developer
+    # @collaborator.add_role :developer, @project
+  end
+
   private
   def set_project
-    @project = current_user.projects.find(params[:project_id])
+    @project = current_user.projects.find_by(id: params[:project_id]) || current_user.shared_projects.find_by(id: params[:project_id])
   end
 
   def set_board
