@@ -21,16 +21,40 @@ class Users::StoriesController < Users::BaseController
 
     if @story.save
       flash[:notice] = "Estoria criada com sucesso"
+
+      data = {
+          action: 'create',
+          board_id: @board.id,
+          story: {
+              id: @story.id,
+              name: @story.name,
+              position: @story.position
+          }
+      }
+      broadcastStoryUpdated(data)
       redirect_to [:users, @project]
     else
       flash[:error] = "Falha na criaçao da estoria"
       render :new
     end
+
+
   end
 
   def update
     if @story.update(stories_params)
       flash[:notice] = "Estoria atualizada com sucesso"
+
+      data = {
+          action: 'update',
+          board_id: @board.id,
+          story: {
+              id: @story.id,
+              name: @story.name,
+              position: @story.position
+          }
+      }
+      broadcastStoryUpdated(data)
       redirect_to [:users, @project]
     else
       flash[:error] = "Falha na atualizaçao da estoria"
@@ -41,16 +65,18 @@ class Users::StoriesController < Users::BaseController
   def destroy
     @story.destroy
     flash[:notice] = "Estoria excluida com sucesso"
+
+    data = {
+        action: 'destroy',
+        board_id: @board.id,
+        story: @story.id
+    }
+    broadcastStoryUpdated(data)
     redirect_to [:users, @project]
   end
 
-  def set_roles
-    #if role == :manager
-    # @collaborator.add_role :manager, @project
-    # elsif role == :master
-    # @collaborator.add_role :master, @project
-    # elsif role == :developer
-    # @collaborator.add_role :developer, @project
+  def broadcastStoryUpdated(data)
+    ActionCable.server.broadcast "project:#{@project.id}:stories", data
   end
 
   private

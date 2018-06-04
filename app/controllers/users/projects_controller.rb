@@ -64,6 +64,15 @@ class Users::ProjectsController < Users::BaseController
     @collaborator = @project.collaborators.find(params[:id])
   end
 
+  def set_roles
+    #if role == :manager
+    # @collaborator.add_role :manager, @project
+    # elsif role == :master
+    # @collaborator.add_role :master, @project
+    # elsif role == :developer
+    # @collaborator.add_role :developer, @project
+  end
+
   private
   def set_project
     @project = current_user.projects.find_by(id: params[:id]) || current_user.shared_projects.find_by(id: params[:id])
