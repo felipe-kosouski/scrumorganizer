@@ -1,50 +1,52 @@
 <% provide(:head_title, "Projeto") %>
 
-<div class="row">
-  <h1><%= @project.name %></h1>
-  <% @project.collaborators.each do |collaborator| %>
-    <p><%= link_to collaborator.name, users_project_show_collaborator_path(@project, collaborator) %></p>
-  <% end %>
-</div>
-
-<div class="container">
-  <% unless current_user.has_role? :developer, @project %>
-      <%= link_to "Colaboradores", users_project_collaborators_path(@project), class: "btn btn-outline-primary" %>
-      <%= link_to fa_icon("plus-circle 2x"), new_users_project_board_path(@project), class: "pull-right" %>
-  <% end %>
-  <br><br>
-
+<div id="project-boards" data-project-id="<%= @project.id %>">
   <div class="row">
-
-    <%#= tag.div id: :boards, data: {boards: @boards.to_json(include: :stories)} %>
-
-    <%# props = {
-        boards: @boards
-    }.to_json(include: :stories)
-    %>
-
-<!--    <div id="boards" data-boards="<%#= props %>"></div>-->
-
-
-    <% @boards.each do |board| %>
-      <div class="col-md-3">
-        <%= link_to fa_icon("edit 2x", class: ""), edit_users_project_board_path(@project, board) %>
-        <% unless current_user.has_role? :developer, @project %>
-          <%= link_to fa_icon("trash 2x", class: "red pull-right"),
-                    [:users, @project, board], method: :delete, data: {confirm: 'Tem certeza?'} %>
-          <% end %>
-        <h5 class="text-center"><%= board.name %></h5>
-        <hr>
-        <%= link_to fa_icon("plus", class: ""), new_users_project_board_story_path(@project, board) %>
-        <% board.stories.each do |story|  %>
-          <div class="card card-body">
-            <p><%= story.name %></p>
-            <%= link_to fa_icon("edit", class: "pull-right"), edit_users_project_board_story_path(@project, board, story) %>
-            <%= link_to fa_icon("trash", class: "red pull-right"),
-                        [:users, @project, board, story], method: :delete, data: {confirm: 'Tem certeza?'} %>
-          </div>
-        <% end %>
-      </div>
+    <h1><%= @project.name %></h1>
+    <% @project.collaborators.each do |collaborator| %>
+      <p><%= link_to collaborator.name, users_project_show_collaborator_path(@project, collaborator) %></p>
     <% end %>
+  </div>
+
+  <div class="container">
+    <% unless current_user.has_role? :developer, @project %>
+        <%= link_to "Colaboradores", users_project_collaborators_path(@project), class: "btn btn-outline-primary" %>
+        <%= link_to fa_icon("plus-circle 2x"), new_users_project_board_path(@project), class: "pull-right" %>
+    <% end %>
+    <br><br>
+
+    <div class="row">
+
+      <%#= tag.div id: :boards, data: {boards: @boards.to_json(include: :stories)} %>
+
+      <%# props = {
+          boards: @boards
+      }.to_json(include: :stories)
+      %>
+
+  <!--    <div id="boards" data-boards="<%#= props %>"></div>-->
+
+
+      <% @boards.each do |board| %>
+        <div class="col-md-3" id="board-<%= board.id %>">
+          <%= link_to fa_icon("edit 2x", class: ""), edit_users_project_board_path(@project, board) %>
+          <% unless current_user.has_role? :developer, @project %>
+            <%= link_to fa_icon("trash 2x", class: "red pull-right"),
+                      [:users, @project, board], method: :delete, data: {confirm: 'Tem certeza?'} %>
+            <% end %>
+          <h5 class="text-center"><%= board.name %></h5>
+          <hr>
+          <%= link_to fa_icon("plus", class: ""), new_users_project_board_story_path(@project, board) %>
+          <% board.stories.each do |story|  %>
+            <div class="card card-body" id="story-<%= story.id %>">
+              <p id="story-<%= story.id %>-name"><%= story.name %></p>
+              <%= link_to fa_icon("edit", class: "pull-right"), edit_users_project_board_story_path(@project, board, story) %>
+              <%= link_to fa_icon("trash", class: "red pull-right"),
+                          [:users, @project, board, story], method: :delete, data: {confirm: 'Tem certeza?'} %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

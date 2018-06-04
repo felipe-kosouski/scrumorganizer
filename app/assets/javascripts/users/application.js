@@ -16,3 +16,19 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+// Config files
+//--------------------
+//= require config/namespace
+
+// ActionCable files
+//-----------------------
+//= require action_cable
+//= require config/action_cable
+//= require channels/users/story
+//= require channels/users/load
+
+// App files
+//-----------------------
+//= require users/events
+//= require users/functions
