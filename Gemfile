@@ -46,6 +46,7 @@ end
 
 group :production do
   gem 'pg', '0.18.4'
+  gem 'redis', '~>3.2'
 end
 
 group :test do
