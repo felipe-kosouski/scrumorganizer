@@ -26,7 +26,10 @@ coverage
 
 /.idea/*
 
-config/database.yml
+/config/database.yml
+
+/config/application.yml
+
 /public/packs
 /public/packs-test
 /node_modules
