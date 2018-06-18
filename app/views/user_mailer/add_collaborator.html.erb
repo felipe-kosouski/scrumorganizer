@@ -1,0 +1,9 @@
+<h1>Bem vindo </h1>
+
+<p>
+  Você foi adicionado como colaborator no projeto <%= @project.name %>.
+</p>
+
+<p>Verifique sua dashboard ou clique no link abaixo.</p>
+
+<%= link_to "Projeto", users_project_url(@project) %>

@@ -1,5 +1,5 @@
 class Users::ProjectsController < Users::BaseController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :show_collaborator]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :show_collaborator, :send_email]
   #load_and_authorize_resource
 
   def index
@@ -54,6 +54,7 @@ class Users::ProjectsController < Users::BaseController
   def add_collaborators
     @project = current_user.projects.find(params[:project_id])
     @project.collaborator_ids = params[:project][:collaborator_ids]
+    send_email
 
     flash[:success] = "Usuário adicionado ao projeto"
     redirect_to [:users, @project]
@@ -71,6 +72,11 @@ class Users::ProjectsController < Users::BaseController
     # @collaborator.add_role :master, @project
     # elsif role == :developer
     # @collaborator.add_role :developer, @project
+  end
+
+  def send_email
+    #@collaborator = @project.collaborators.find(params[:collaborator_ids])
+    UserMailer.add_collaborator(@project).deliver_now!
   end
 
   private
