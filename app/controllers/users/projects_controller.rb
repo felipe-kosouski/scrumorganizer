@@ -54,9 +54,13 @@ class Users::ProjectsController < Users::BaseController
   def add_collaborators
     @project = current_user.projects.find(params[:project_id])
     @project.collaborator_ids = params[:project][:collaborator_ids]
-    send_email
+    if @project.collaborator_ids.empty?
+      flash[:success] = "Lista de colaboradores atualizada."
+    else
+      send_email
+      flash[:success] = "Lista de colaboradores atualizada. Um email foi enviado para cada um dos colaboradores."
+    end
 
-    flash[:success] = "Usuário adicionado ao projeto"
     redirect_to [:users, @project]
   end
 
