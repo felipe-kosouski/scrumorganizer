@@ -26,11 +26,15 @@ SCRUMORGANIZER.cable.story = ->
         @deleteStory(data)
       
     createStory: (data) ->
-      div = $("board-#{data.board_id}")
-      p = $("#story-#{data.story.id}")
+      #console.log(data)
+      div = $("#board-#{data.board_id}")
+      console.log(div)
 
-      p.append(data.story.name)
-      div.prepend(p)
+      p = $("<p>")
+      p.attr("id", "#story-#{data.story.id}")
+
+      p.html(data.story.name)
+      div.append(p)
 
     updateStory: (data) ->
       p = $("#story-#{data.story.id}-name")
