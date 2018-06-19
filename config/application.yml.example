@@ -1,3 +1,15 @@
-S3_ACCESS_KEY = 's3 acess key'
-S3_SECRET_KEY = 's3 secret key'
-S3_BUCKET = 's3 bucket name'
+development:
+  GMAIL_USERNAME: 'gmail email'
+  GMAIL_PASSWORD: "gmail password"
+  S3_ACCESS_KEY: 's3 access key'
+  S3_SECRET_KEY: 's3 secret key'
+  S3_BUCKET: 's3 bucket'
+  S3_REGION: 'xx-xx-1'
+
+production:
+  GMAIL_USERNAME: 'gmail email'
+  GMAIL_PASSWORD: "gmail password"
+  S3_ACCESS_KEY: 's3 access key'
+  S3_SECRET_KEY: 's3 secret key'
+  S3_BUCKET: 's3 bucket'
+  S3_REGION: 'xx-xx-1'
