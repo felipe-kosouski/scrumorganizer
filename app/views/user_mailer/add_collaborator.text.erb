@@ -1,0 +1,7 @@
+Bem vindo <%#= @collaborator.name %>
+
+Você foi adicionado como colaborator no projeto <%= @project.name %>.
+
+Verifique sua dashboard ou clique no link abaixo.
+
+<%= link_to "Projeto", users_project_url(@project) %>
