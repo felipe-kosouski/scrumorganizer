@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   rolify
 
+  ROLES = %w[manager master developer]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
