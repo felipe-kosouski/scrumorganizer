@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
         get '/collaborator/:id', to: "projects#show_collaborator", as: "show_collaborator"
 
+        post '/collaborator/:id', to: "projects#set_role", as: "add_role"
+
         resources :boards do
           resources :stories
         end
