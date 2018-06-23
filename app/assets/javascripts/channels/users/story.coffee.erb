@@ -26,15 +26,42 @@ SCRUMORGANIZER.cable.story = ->
         @deleteStory(data)
       
     createStory: (data) ->
-      #console.log(data)
+      environment = "<%= Rails.env %>"
+      if environment is 'production'
+       baseUrl = "http://felipe.tsi.pro.br"
+      else
+       baseUrl = "http://0.0.0.0:3000"
+
+
+      console.log(baseUrl)
+
       div = $("#board-#{data.board_id}")
-      console.log(div)
+      storyDiv = $("<div>")
+      storyDiv.attr("id", "#story-#{data.story.id}")
+      storyDiv.addClass("card card-body")
+      div.append(storyDiv)
 
       p = $("<p>")
-      p.attr("id", "#story-#{data.story.id}")
+
+      p.attr("id", "#story-#{data.story.id}-name")
+
+      aEdit = $("<a>")
+      aEdit.attr("href",
+          baseUrl + "/users/projects/#{data.project_id}/boards/#{data.board_id}/stories/#{data.story.id}/edit")
+      aEdit.html("<i class='fa fa-edit pull-right'></i>")
+
+      aDelete = $("<a>")
+      aDelete.attr("href",
+          baseUrl + "/users/projects/#{data.project_id}/boards/#{data.board_id}/stories/#{data.story.id}")
+      aDelete.html("<i class='fa fa-trash red pull-right'></i>")
+      aDelete.attr("data-confirm", "Tem certeza?")
+      aDelete.attr("rel", "nofollow")
+      aDelete.attr("data-method", "delete")
 
       p.html(data.story.name)
-      div.append(p)
+      storyDiv.append(p)
+      storyDiv.append(aEdit)
+      storyDiv.append(aDelete)
 
     updateStory: (data) ->
       p = $("#story-#{data.story.id}-name")
