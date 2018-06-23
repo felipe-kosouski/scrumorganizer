@@ -25,7 +25,7 @@
 //-----------------------
 //= require action_cable
 //= require config/action_cable
-//= require channels/users/story
+//= require channels/users/story.coffee.erb
 //= require channels/users/load
 
 // App files

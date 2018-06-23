@@ -24,6 +24,7 @@ class Users::StoriesController < Users::BaseController
 
       data = {
           action: 'create',
+          project_id: @project.id,
           board_id: @board.id,
           story: {
               id: @story.id,
