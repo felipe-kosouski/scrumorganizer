@@ -8,7 +8,7 @@ RSpec.feature "Dashboard", type: :feature do
     expect(page).to have_selector('div.profile-usertitle-name', text: user.name)
   end
 
-  it 'should access users root path and find menu links' do
+  it 'should access users root path and find sidebar' do
     user = create(:user)
     login_as(user, scope: :user)
     visit users_root_path
