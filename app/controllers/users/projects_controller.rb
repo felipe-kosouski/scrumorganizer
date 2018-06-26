@@ -69,17 +69,25 @@ class Users::ProjectsController < Users::BaseController
     @collaborator = @project.collaborators.find(params[:id])
   end
 
-  def set_roles
-    #if role == :manager
-    # @collaborator.add_role :manager, @project
-    # elsif role == :master
-    # @collaborator.add_role :master, @project
-    # elsif role == :developer
-    # @collaborator.add_role :developer, @project
+  def set_role
+    @project = current_user.projects.find_by(id: params[:project_id])
+    role = params[:user][:roles]
+    @collaborator = @project.collaborators.find(params[:id])
+
+    @collaborator.roles = []
+
+    if role == 'manager'
+      @collaborator.add_role :manager, @project
+    elsif role == 'master'
+      @collaborator.add_role :master, @project
+    elsif role == 'developer'
+      @collaborator.add_role :developer, @project
+    end
+
+    redirect_back(fallback_location: users_project_path(:users, @project))
   end
 
   def send_email
-    #@collaborator = @project.collaborators.find(params[:collaborator_ids])
     UserMailer.add_collaborator(@project).deliver_now!
   end
 

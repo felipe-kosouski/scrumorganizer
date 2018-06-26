@@ -23,10 +23,10 @@ gem 'mini_magick', '4.7.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
+  gem 'selenium-webdriver'
 end
 
 group :development do
