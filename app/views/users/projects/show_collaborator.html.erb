@@ -17,16 +17,19 @@
     <p>Scrum Master</p>
 <% end %>
 
+<% if current_user.has_role? :manager, @project %>
 
-<h5>Selecione um papel para o usuario: </h5>
-<%= simple_form_for(@collaborator, url: users_project_add_role_path(@project, @collaborator), method: :post) do |f| %>
-  <%= f.error_notification %>
+  <h5>Selecione um papel para o usuario: </h5>
+  <%= simple_form_for(@collaborator, url: users_project_add_role_path(@project, @collaborator), method: :post) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-check">
-    <%= f.collection_radio_buttons :roles, User::ROLES, :to_s, :humanize%>
-  </div>
+    <div class="form-check">
+      <%= f.collection_radio_buttons :roles, User::ROLES, :to_s, :humanize%>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Salvar", class: "btn btn-outline-primary" %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Salvar", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+
 <% end %>

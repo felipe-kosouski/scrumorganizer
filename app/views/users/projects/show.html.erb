@@ -11,9 +11,12 @@
     <% end %>
     <br><br>
     <ul class="list-group">
-      <% @project.collaborators.each do |collaborator| %>
-        <li class="list-group-item list-group-item-action"><%= link_to collaborator.name, users_project_show_collaborator_path(@project, collaborator) %></li>
+      <% unless current_user.has_role? :developer, @project %>
+        <% @project.collaborators.each do |collaborator| %>
+          <li class="list-group-item list-group-item-action"><%= link_to collaborator.name, users_project_show_collaborator_path(@project, collaborator) %></li>
+        <% end %>
       <% end %>
+
     </ul>
     <br><br>
     <% unless current_user.has_role? :developer, @project %>
